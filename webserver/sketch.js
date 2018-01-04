@@ -8,12 +8,14 @@ function setup() {
   latestprice = data["price"][data["price"].length - 1];
   pricechart = new PriceChart(0, 0);
   balancechart = new BalanceChart(0, 100);
+  config = loadJSON("config.json")
   data = loadJSON("data.json", show)
   stroke(255);
 }
 
 function draw() {
   data = loadJSON("data.json", show)
+
 }
 
 function show() {
@@ -27,7 +29,8 @@ function show() {
     document.getElementById("on-off").innerHTML = "offline"
     document.getElementById("on-off").style.color = "#ee0000"
   }
-  document.getElementById("address").innerHTML = "address: " + data["address"]
+  document.getElementById("address").innerHTML = "address: " + config["address"] + " |"
+  document.getElementById("coin").innerHTML = "coin: " + config["crypto"]
   pricechart.show();
   balancechart.show();
 }
@@ -108,8 +111,8 @@ function BalanceChart(x, y) {
     line(x, y + 100, 500 + x, y + 100);
     noStroke();
     fill(0);
-    text(highest + " vivo", x + 5, y + 15);
-    text(lowest + " vivo", x + 5, y + 95);
-    text("current balance: " + data["balance"][data["balance"].length - 1] + " vivo", x + 320, y + 95);
+    text(highest + " " + config["crypto"], x + 5, y + 15);
+    text(lowest + " " + config["crypto"], x + 5, y + 95);
+    text("current balance: " + data["balance"][data["balance"].length - 1] + " " + config["crypto"], x + 320, y + 95);
   }
 }

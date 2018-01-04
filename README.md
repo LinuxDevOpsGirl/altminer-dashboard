@@ -33,8 +33,10 @@ we have two branches, a master and a dev. dev is for beta releases and can have 
 - [x] Get price data from coin gecko
 - [x] Graphs for price and balance
 - [x] Support most crpyto
+- [ ] listing of coins in setup
 - [ ] Setup for windows
 - [ ] Better web layout
+- [ ] support for other currencies like dollars
 
   ### donation?
 
