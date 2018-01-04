@@ -2,6 +2,8 @@
 
 a simple dashboard for people who mine altcoins on altminer.net
 
+we have two branches, a master and a dev. dev is for beta releases and can have a lot of errors. master is stable and should be used
+
 ![web app](https://i.imgur.com/G2tRXZJ.png) ![terminal log](https://i.imgur.com/er2qIHm.png)
 
 ## Table of Contents
