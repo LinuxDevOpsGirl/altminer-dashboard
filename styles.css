@@ -1,0 +1,52 @@
+body {
+  margin: 0px;
+  overflow: hidden;
+}
+
+p {
+  font-weight: 300;
+  font-size: 20px;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+ul {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  margin: 0;
+  font-weight: 25px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #777777;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 35px;
+}
+
+
+
+/* top bar */
+
+li p {
+  display: inline;
+  float: left;
+  margin: 3px;
+  display: block;
+  background-color: #777777;
+  font-family: 'Avenir Next', sans-serif;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 500;
+  transition: .3s ease-out;
+}
+
+.twitter-timeline {
+  min-width: 300px !important;
+  max-width: 50 !important;
+}
+
+.active {
+  background-color: #ffffff;
+  color: #000000;
+}
