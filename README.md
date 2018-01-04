@@ -1,8 +1,8 @@
 # altminer dashboard
 
-a simple dashboard for people who mine altcoins on altminer.net
+a simple dashboard for people who mine altcoins on altminer.net.
 
-we have two branches, a master and a dev. dev is for beta releases and can have a lot of errors. master is stable and should be used
+we have two branches, a master and a dev. dev is for beta releases and can have a lot of errors. master is stable and should be used.
 
 ![web app](https://i.imgur.com/G2tRXZJ.png) ![terminal log](https://i.imgur.com/er2qIHm.png)
 
@@ -20,12 +20,12 @@ we have two branches, a master and a dev. dev is for beta releases and can have 
 - Go into the new directory: `cd altminer-dashboard`
 - run `chmod +x setup.sh run.sh`
 - Run `./setup.sh`<br>
-  this configures the dashboard and installs csfscrape (follow the steps in the setup)
+  this configures the dashboard and installs csfscrape (follow the steps in the setup).
 - Run `./run.sh` After you are done following it, this will start your dashboard.
 
   ## usage
 
-   After you start the dashboard go to localhost:5377 to see the dashboard
+   After you start the dashboard go to localhost:5377 to see the dashboard.
 
   ## Features
 
@@ -38,7 +38,7 @@ we have two branches, a master and a dev. dev is for beta releases and can have 
 
   ### donation?
 
-   if you want to you can donate to me in multiple coins
+   if you want to you can donate to me in multiple coins.
 - bitcoin: 13L2xLxTtUPHiqDwN5rguijPCx8HsFEyNc
 - vivo: VUscb3ssRU7UJNjPpkJEH9vm9ELnXBoMHz
 - mona: MAroAyKA9tHGXU1BMAd7uuvrqBBKR6e62C
