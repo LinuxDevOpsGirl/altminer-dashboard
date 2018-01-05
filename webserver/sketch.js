@@ -22,6 +22,13 @@ function show() {
   background(42);
   noStroke();
   document.getElementById("earned").innerHTML = "€" + floor((data["balance"][data["balance"].length - 1] * data["price"][data["price"].length - 1]) * 100) / 100;
+  if ((data["price"][data["price"].length - 1] - data["price"][0]) / data["price"][0] > 0) {
+    document.getElementById("price-percent").innerHTML = "▲ %" + Math.floor((data["price"][data["price"].length - 1] - data["price"][0]) / data["price"][0] * 10000) / 100
+    document.getElementById("price-percent").style.color = "#00ff00"
+  } else {
+    document.getElementById("price-percent").innerHTML = "▼ %" + Math.floor((data["price"][data["price"].length - 1] - data["price"][0]) / data["price"][0] * 10000) / 100
+    document.getElementById("price-percent").style.color = "#ee0000"
+  }
   if (data["online"] == true) {
     document.getElementById("on-off").innerHTML = "online"
     document.getElementById("on-off").style.color = "00ff00"
@@ -76,7 +83,6 @@ function PriceChart(x, y) {
     text("current price: €" + data["price"][data["price"].length - 1], x + 380, y + 15);
     if (data["price"][data["price"].length - 1] > data["price"][0]) {
       fill(0, 255, 0)
-      text("percentage: %" + floor((data["price"][data["price"].length - 1] - data["price"][0]) / data["price"][data["price"].length - 1] * 10000) / 100, x + 392, y + 27)
     }
   }
 }

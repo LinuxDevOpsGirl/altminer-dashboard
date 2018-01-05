@@ -19,6 +19,7 @@ p {
   padding-right: 50px;
   padding-bottom: 10px;
   padding-top: 0px;
+  display: inline;
 }
 
 .widget-title {
