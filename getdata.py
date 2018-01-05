@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 import re
-import sys
 import time
 import json
 import cfscrape
 import threading
 from colors import *
+from colorama import Fore
 
 coinpriceRe = re.compile('\€(.*?)\</span>')
 totalRe = re.compile('\.9em;\'>(.*?)\ VIVO')
@@ -32,18 +32,18 @@ def updatecoin():
         f.seek(0)
         json.dump(data, f)
         f.truncate()
-        sys.stdout.write(RESET)
+        print Fore.RESET,
         print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [coin price] [INFO]",
         print "price: ",
-        sys.stdout.write(GREEN)
+        print Fore.GREEN,
         print price,
         print "euro"
-        sys.stdout.write(RESET)
+        print Fore.RESET,
     else:
         print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [coin price] [INFO]",
-        sys.stdout.write(RED)
+        print Fore.RED,
         print " price was the same, so not updated"
-        sys.stdout.write(RESET)
+        print Fore.RESET,
     scraped = scraper.get(
         "https://www.altminer.net/site/wallet_results?address=%s" % config["address"]).content
     scraped = totalRe.findall(scraped)
@@ -58,18 +58,18 @@ def updatecoin():
         f.seek(0)
         json.dump(data, f)
         f.truncate()
-        sys.stdout.write(RESET)
+        print Fore.RESET,
         print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [balance] [INFO]",
         print "balance: ",
-        sys.stdout.write(BLUE)
+        print Fore.BLUE,
         print balance,
         print "vivo"
-        sys.stdout.write(RESET)
+        print Fore.RESET,
     else:
         print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [balance] [INFO]",
-        sys.stdout.write(RED)
-        print " balance was the same, so not updated"
-        sys.stdout.write(RESET)
+        print Fore.RED,
+        print "balance was the same, so not updated"
+        print Fore.RESET,
     scraped = scraper.get(
         "https://www.altminer.net/site/wallet_miners_results?address=%s" % config["address"]).content
     scraped = hashRe.findall(scraped)
@@ -78,11 +78,11 @@ def updatecoin():
         data = json.load(f)
         lateststatus = data["online"]
         print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate]",
-        sys.stdout.write(YELLOW)
+        print Fore.YELLOW,
         print "[WARNING]",
-        sys.stdout.write(RED)
-        print " hashrate not found. perhaps not running"
-        sys.stdout.write(RESET)
+        print Fore.RED,
+        print "hashrate not found. perhaps not running"
+        print Fore.RESET,
         if lateststatus != False:
             print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate] [INFO]",
             print "status not yet set to false, changing now"
@@ -105,13 +105,13 @@ def updatecoin():
             json.dump(data, f)
             f.truncate()
             lateststatus = data["online"]
-            sys.stdout.write(RESET)
+            print Fore.RESET,
             print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate] [INFO]",
             print "hashrate: ",
-            sys.stdout.write(BLUE)
+            print Fore.BLUE,
             print hashrate,
             print "kh/s"
-            sys.stdout.write(RESET)
+            print Fore.RESET,
             if lateststatus != True:
                 print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate] [INFO]",
                 print "status not yet set to true, changing now"
@@ -121,9 +121,9 @@ def updatecoin():
                 f.truncate()
         else:
             print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate] [INFO]",
-            sys.stdout.write(RED)
+            print Fore.RED,
             print " hashrate was the same, so not updated"
-            sys.stdout.write(RESET)
+            print Fore.RESET,
 
 
 updatecoin()
