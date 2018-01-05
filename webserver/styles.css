@@ -1,11 +1,32 @@
 body {
   margin: 0px;
   overflow: hidden;
+  background: #1B1C1F;
+  text-align: center;
 }
 
 p {
   font-weight: 300;
   font-size: 20px;
+  color: #ffffff;
+  margin: 0px;
+  text-align: center;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+.widget {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  padding-top: 0px;
+}
+
+.widget-title {
+  font-weight: 300;
+  font-size: 10px;
+  color: #ffffff;
+  margin: 0px;
+  text-align: left;
   font-family: 'Avenir Next', sans-serif;
 }
 
@@ -16,35 +37,42 @@ ul {
   font-weight: 25px;
   padding: 0;
   overflow: hidden;
-  background-color: #555555;
+  background-color: #000000;
   position: fixed;
   top: 0;
   width: 100%;
-  height: 35px;
+  height: 25px;
 }
 
 /* top bar */
 
-li p {
+ul p {
   display: inline;
   float: left;
   margin: 3px;
   display: block;
-  background-color: #555555;
+  background-color: #000000;
   font-family: 'Avenir Next', sans-serif;
   text-decoration: none;
   color: #ffffff;
-  font-size: 25px;
+  font-size: 15px;
   font-weight: 500;
   transition: .3s ease-out;
 }
 
-.twitter-timeline {
-  min-width: 300px !important;
-  max-width: 50 !important;
+.card {
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  margin: 0px;
+  background-color: #2A2A2A;
+  display: inline-block;
+  /*transition: all 0.6s ease-in-out;*/
 }
 
-.active {
-  background-color: #ffffff;
-  color: #000000;
+canvas {
+  padding: 10px !important;
+  background-color: #2A2A2A;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  margin: 5px
 }

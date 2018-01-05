@@ -3,7 +3,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(500, 220);
+  createCanvas(500, 201);
   frameRate(0.1);
   latestprice = data["price"][data["price"].length - 1];
   pricechart = new PriceChart(0, 0);
@@ -19,9 +19,9 @@ function draw() {
 }
 
 function show() {
-  background(255);
+  background(42);
   noStroke();
-  document.getElementById("earned").innerHTML = "earned: €" + floor((data["balance"][data["balance"].length - 1] * data["price"][data["price"].length - 1]) * 100) / 100;
+  document.getElementById("earned").innerHTML = "€" + floor((data["balance"][data["balance"].length - 1] * data["price"][data["price"].length - 1]) * 100) / 100;
   if (data["online"] == true) {
     document.getElementById("on-off").innerHTML = "online"
     document.getElementById("on-off").style.color = "00ff00"
@@ -31,6 +31,7 @@ function show() {
   }
   document.getElementById("address").innerHTML = "address: " + config["address"] + " |"
   document.getElementById("coin").innerHTML = "coin: " + config["crypto"]
+  document.getElementById("price").innerHTML = "€" + data["price"][data["price"].length - 1]
   pricechart.show();
   balancechart.show();
 }
@@ -69,7 +70,7 @@ function PriceChart(x, y) {
     stroke(100);
     line(x, y + 100, 500 + x, y + 100);
     noStroke();
-    fill(0);
+    fill(255);
     text("€" + highest, x + 5, y + 15);
     text("€" + lowest, x + 5, y + 95);
     text("current price: €" + data["price"][data["price"].length - 1], x + 380, y + 15);
@@ -110,7 +111,7 @@ function BalanceChart(x, y) {
     line(x, y, 500 + x, y);
     line(x, y + 100, 500 + x, y + 100);
     noStroke();
-    fill(0);
+    fill(255);
     text(highest + " " + config["crypto"], x + 5, y + 15);
     text(lowest + " " + config["crypto"], x + 5, y + 95);
     text("current balance: " + data["balance"][data["balance"].length - 1] + " " + config["crypto"], x + 320, y + 95);

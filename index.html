@@ -12,13 +12,25 @@
 
 <body>
   <ul>
-    <li>
-      <p id="address" style="color: #ffffff; "> address </p>
-      <p id="coin" style="color: #ffffff"> coin: </p>
-    </li>
+    <!-- <li> -->
+    <p id="address" style="color: #ffffff; "> address </p>
+    <p id="coin" style="color: #ffffff"> coin: </p>
+    <!-- </li> -->
   </ul>
-  <p style="margin: 0px; margin-top: 40px;" id="earned">loading...</p>
-  <p style="margin: 0px; margin-top: 0px;" class="status">miner status: <span id="on-off">online</span> </p>
+  <div style="margin-top: 30px; text-align: center;">
+    <div class="card">
+      <p class="widget-title"> earned: </p>
+      <p class="widget" id="earned">loading...</p>
+    </div>
+    <div class="card">
+      <p class="widget-title">miner status: </p>
+      <p class="widget" id="on-off"> - </p>
+    </div>
+    <div class="card">
+      <p class="widget-title"> current price: </p>
+      <p class="widget" id="price">loading...</p>
+    </div>
+  </div>
 </body>
 
 </html>
