@@ -31,7 +31,7 @@ function show() {
   }
   if (data["online"] == true) {
     document.getElementById("on-off").innerHTML = "online"
-    document.getElementById("on-off").style.color = "00ff00"
+    document.getElementById("on-off").style.color = "#00ff00"
   } else {
     document.getElementById("on-off").innerHTML = "offline"
     document.getElementById("on-off").style.color = "#ee0000"
