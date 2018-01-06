@@ -14,15 +14,20 @@ we have two branches, a master and a dev. dev is for beta releases and can have 
 
   ## installation
 
-  ### Easy installation
+  ### linux installation
 
 - Clone the git: `git clone https://github.com/maxer137/altminer-dashboard.git`
 - Go into the new directory: `cd altminer-dashboard`
-- run `chmod +x setup.sh run.sh`
 - Run `./setup.sh`<br>
   this configures the dashboard and installs csfscrape (follow the steps in the setup).
-- Run `./run.sh` After you are done following it, this will start your dashboard.
+- Run `./run.sh` this will start your dashboard.
 
+  ### windows installation
+- Download the zip and extract it somewhere
+- Go into the directory: `cd altminer-dashboard`
+- open setup.bat <br>
+  this configures the dashboard and installs csfscrape (follow the steps in the setup).
+- open run.bat this will start your dashboard.
   ## usage
 
    After you start the dashboard go to localhost:5377 to see the dashboard.
@@ -31,12 +36,13 @@ we have two branches, a master and a dev. dev is for beta releases and can have 
 
 - [x] Get data about the miner
 - [x] Get price data from coin gecko
+- [x] show percentage of increase/decrease in price
 - [x] Graphs for price and balance
 - [x] Support most crpyto
-- [ ] listing of coins in setup
-- [ ] Setup for windows
+- [x] Setup for windows
 - [ ] Better web layout
 - [ ] support for other currencies like dollars
+- [ ] listing of coins in setup
 
   ### donation?
 
