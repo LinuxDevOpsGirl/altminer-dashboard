@@ -8,13 +8,12 @@ from colors import *
 from colorama import Fore
 
 coinpriceRe = re.compile('\€(.*?)\</span>')
-totalRe = re.compile('\.9em;\'>(.*?)\ VIVO')
+totalRe = re.compile('\.9em;\'>(.*?)\ ')
 hashRe = re.compile('</td><td align="right" width="100"><b>(.*?)\ (kh|Mh)')
 time.strftime("%H:%M:%S")
 scraper = cfscrape.create_scraper()
 f = open('config.json')
 config = json.load(f)
-
 
 def updatecoin():
     threading.Timer(180.0, updatecoin).start()
@@ -63,7 +62,7 @@ def updatecoin():
         print "balance: ",
         print Fore.BLUE,
         print balance,
-        print "vivo",
+        print config["crypto"].content,
         print Fore.RESET
     else:
         print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [balance]  [INFO]",
