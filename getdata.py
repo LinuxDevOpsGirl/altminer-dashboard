@@ -9,7 +9,7 @@ from colorama import Fore
 
 coinpriceRe = re.compile('\€(.*?)\</span>')
 totalRe = re.compile('\.9em;\'>(.*?)\ VIVO')
-hashRe = re.compile('</td><td align="right" width="100"><b>(.*?)\ (kh|mh)')
+hashRe = re.compile('</td><td align="right" width="100"><b>(.*?)\ (kh|Mh)')
 time.strftime("%H:%M:%S")
 scraper = cfscrape.create_scraper()
 f = open('config.json')
@@ -42,8 +42,8 @@ def updatecoin():
     else:
         print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [coin price] [INFO]",
         print Fore.RED,
-        print " price was the same, so not updated"
-        print Fore.RESET,
+        print " price was the same, so not updated",
+        print Fore.RESET
     scraped = scraper.get(
         "https://www.altminer.net/site/wallet_results?address=%s" % config["address"]).content
     scraped = totalRe.findall(scraped)
@@ -59,17 +59,17 @@ def updatecoin():
         json.dump(data, f)
         f.truncate()
         print Fore.RESET,
-        print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [balance] [INFO]",
+        print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [balance]  [INFO]",
         print "balance: ",
         print Fore.BLUE,
         print balance,
-        print "vivo"
-        print Fore.RESET,
+        print "vivo",
+        print Fore.RESET
     else:
-        print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [balance] [INFO]",
+        print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [balance]  [INFO]",
         print Fore.RED,
-        print "balance was the same, so not updated"
-        print Fore.RESET,
+        print "balance was the same, so not updated",
+        print Fore.RESET
     scraped = scraper.get(
         "https://www.altminer.net/site/wallet_miners_results?address=%s" % config["address"]).content
     scraped = hashRe.findall(scraped)
@@ -110,8 +110,8 @@ def updatecoin():
             print "hashrate: ",
             print Fore.BLUE,
             print hashrate,
-            print "kh/s"
-            print Fore.RESET,
+            print "kh/s",
+            print Fore.RESET
             if lateststatus != True:
                 print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate] [INFO]",
                 print "status not yet set to true, changing now"
@@ -122,8 +122,8 @@ def updatecoin():
         else:
             print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate] [INFO]",
             print Fore.RED,
-            print " hashrate was the same, so not updated"
-            print Fore.RESET,
+            print " hashrate was the same, so not updated",
+            print Fore.RESET
 
 
 updatecoin()

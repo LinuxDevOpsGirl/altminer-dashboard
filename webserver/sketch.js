@@ -3,14 +3,15 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(500, 201);
+  createCanvas(600, 276);
   frameRate(0.1);
   latestprice = data["price"][data["price"].length - 1];
-  pricechart = new PriceChart(0, 0);
-  balancechart = new BalanceChart(0, 100);
+  pricechart = new PriceChart(60, 10);
+  balancechart = new BalanceChart(60, 150);
   config = loadJSON("config.json")
   data = loadJSON("data.json", show)
   stroke(255);
+  textAlign(RIGHT);
 }
 
 function draw() {
@@ -31,14 +32,15 @@ function show() {
   }
   if (data["online"] == true) {
     document.getElementById("on-off").innerHTML = "online"
-    document.getElementById("on-off").style.color = "#00ff00"
+    document.getElementById("on-off-circle").fill = "#00ff00"
   } else {
     document.getElementById("on-off").innerHTML = "offline"
-    document.getElementById("on-off").style.color = "#ee0000"
+    document.getElementById("on-off-circle").fill = "#ee0000"
   }
   document.getElementById("address").innerHTML = "address: " + config["address"] + " |"
   document.getElementById("coin").innerHTML = "coin: " + config["crypto"]
   document.getElementById("price").innerHTML = "€" + data["price"][data["price"].length - 1]
+  document.getElementById("hashrate").innerHTML = data["hashrate"][data["hashrate"].length - 1] + " kh/s"
   pricechart.show();
   balancechart.show();
 }
@@ -76,11 +78,14 @@ function PriceChart(x, y) {
     line(x, y, 500 + x, y);
     stroke(100);
     line(x, y + 100, 500 + x, y + 100);
-    noStroke();
     fill(255);
-    text("€" + highest, x + 5, y + 15);
-    text("€" + lowest, x + 5, y + 95);
-    text("current price: €" + data["price"][data["price"].length - 1], x + 380, y + 15);
+    textSize(10);
+    for (var i = 0; i < 6; i++) {
+      noStroke();
+      text("€" + (lowest + Math.floor(((highest - lowest)) * (i * 20) * 1) / 100), x - 5, y + 5 + ((5 - i) * 20));
+      stroke(100);
+      line(x, y + (i * 20), 500 + x, y + (i * 20));
+    }
     if (data["price"][data["price"].length - 1] > data["price"][0]) {
       fill(0, 255, 0)
     }
@@ -116,10 +121,13 @@ function BalanceChart(x, y) {
     stroke(100);
     line(x, y, 500 + x, y);
     line(x, y + 100, 500 + x, y + 100);
-    noStroke();
     fill(255);
-    text(highest + " " + config["crypto"], x + 5, y + 15);
-    text(lowest + " " + config["crypto"], x + 5, y + 95);
-    text("current balance: " + data["balance"][data["balance"].length - 1] + " " + config["crypto"], x + 320, y + 95);
+    textSize(10);
+    for (var i = 0; i < 6; i++) {
+      noStroke();
+      text(lowest + Math.floor(((highest - lowest)) * (i * 20) * 1) / 100 + " " + config["crypto"], x - 5, y + 5 + ((5 - i) * 20));
+      stroke(200);
+      line(x, y + (i * 20), 500 + x, y + (i * 20));
+    }
   }
 }
