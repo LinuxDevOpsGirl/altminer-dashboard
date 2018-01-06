@@ -32,10 +32,10 @@ function show() {
   }
   if (data["online"] == true) {
     document.getElementById("on-off").innerHTML = "online"
-    document.getElementById("on-off-circle").fill = "#00ff00"
+    document.getElementById("on-off-circle").innerHTML = "#<circle id=\"\"cx=\"4\"cy=\"4\"r=\"4\"stroke=\"black\"stroke-width=\"1\"fill=\"#00ff00\"/> <span id=\"on-off\"style=\"color: #ffffff\"> online </span>"
   } else {
     document.getElementById("on-off").innerHTML = "offline"
-    document.getElementById("on-off-circle").fill = "#ee0000"
+    document.getElementById("on-off-circle").fill = "#<circle id=\"\"cx=\"4\"cy=\"4\"r=\"4\"stroke=\"black\"stroke-width=\"1\"fill=\"#ff0000\"/> <span id=\"on-off\"style=\"color: #ffffff\"> offline </span>"
   }
   document.getElementById("address").innerHTML = "address: " + config["address"] + " |"
   document.getElementById("coin").innerHTML = "coin: " + config["crypto"]
@@ -125,7 +125,7 @@ function BalanceChart(x, y) {
     textSize(10);
     for (var i = 0; i < 6; i++) {
       noStroke();
-      text(lowest + Math.floor(((highest - lowest)) * (i * 20) * 1) / 100 + " " + config["crypto"], x - 5, y + 5 + ((5 - i) * 20));
+      text(lowest + Math.round(((highest - lowest)) * (i * 20) * 1) / 100 + " " + config["crypto"], x - 5, y + 5 + ((5 - i) * 20));
       stroke(200);
       line(x, y + (i * 20), 500 + x, y + (i * 20));
     }
