@@ -32,7 +32,9 @@ def updatecoin():
         f.seek(0)
         json.dump(data, f)
         f.truncate()
-        print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [coin price] [INFO] price:" + GREEN + " " + price + "euro" + WHITE
+        print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [coin price] [INFO] price:" + GREEN,
+        print price,
+        print "euro" + WHITE
     else:
         print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [coin price] [INFO]" + RED + " price was the same, so not updated" + WHITE
     scraped = scraper.get(
