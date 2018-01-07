@@ -32,7 +32,7 @@ def updatecoin():
         f.seek(0)
         json.dump(data, f)
         f.truncate()
-        print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [coin price] [INFO] price: " + GREEN + price + "euro" + WHITE
+        print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [coin price] [INFO] price:" + GREEN + " " + price + "euro" + WHITE
     else:
         print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [coin price] [INFO]" + RED + " price was the same, so not updated" + WHITE
     scraped = scraper.get(
@@ -49,7 +49,9 @@ def updatecoin():
         f.seek(0)
         json.dump(data, f)
         f.truncate()
-        print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [balance] [INFO] balance: " + BLUE + balance + " " + config["crypto"] + WHITE
+        print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [balance] [INFO] balance: " + BLUE,
+        print balance,
+        print config["crypto"] + WHITE
     else:
         print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [balance] [INFO]"+ RED + " balance was the same, so not updated" + WHITE
     scraped = scraper.get(
@@ -81,7 +83,9 @@ def updatecoin():
             json.dump(data, f)
             f.truncate()
             lateststatus = data["online"]
-            print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate] [INFO] hashrate: " + BLUE + hashrate + "kh/s" + WHITE
+            print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate] [INFO] hashrate: " + BLUE,
+            print hashrate,
+            print "kh/s" + WHITE,
             if lateststatus != True:
                 print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate] [INFO] status not yet set to true, changing now" + wHITE
                 data["online"] = True
