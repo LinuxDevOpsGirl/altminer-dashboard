@@ -62,7 +62,7 @@ def updatecoin():
         print "balance: ",
         print Fore.BLUE,
         print balance,
-        print config["crypto"].content,
+        print config["crypto"],
         print Fore.RESET
     else:
         print "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [balance]  [INFO]",
