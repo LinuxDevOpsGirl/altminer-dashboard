@@ -9,6 +9,5 @@ copy /y nul data.json
 echo {"hashrate": [1], "price": [1], "balance": [1], "online": false} >> data.json
 echo isntalling cfscrape
 pip install cfscrape
-echo installing colorama
-pip install colorama
 @ECHO ON
+run.bat

@@ -125,7 +125,7 @@ function BalanceChart(x, y) {
     textSize(10);
     for (var i = 0; i < 6; i++) {
       noStroke();
-      text(lowest + Math.round(((highest - lowest)) * (i * 20) * 1) / 100 + " " + config["crypto"], x - 5, y + 5 + ((5 - i) * 20));
+      text(Math.floor(lowest * 100) / 100 + Math.round(((highest - lowest)) * (i * 20) * 1) / 100 + " " + config["crypto"], x - 5, y + 5 + ((5 - i) * 20));
       stroke(200);
       line(x, y + (i * 20), 500 + x, y + (i * 20));
     }
