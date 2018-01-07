@@ -87,7 +87,7 @@ def updatecoin():
             print hashrate,
             print "kh/s" + WHITE,
             if lateststatus != True:
-                print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate] [INFO] status not yet set to true, changing now" + wHITE
+                print WHITE + "[" + time.strftime("%d/%m/%Y - %H:%M:%S") + "] [hashrate] [INFO] status not yet set to true, changing now" + WHITE
                 data["online"] = True
                 f.seek(0)
                 json.dump(data, f)
